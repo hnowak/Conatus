@@ -1,16 +1,17 @@
 import json
 from services.env_loader import EnvLoader
-from services.envionment import Environment
+from definitions import CONFIG_PATH
 
 
-class EnvParse(Environment):
+class EnvParse:
 	def __init__(self):
-		super().__init__()
+		self.data = self.get_environment_setting()
 
-	def get_environment_setting(self) -> EnvLoader:
+	@staticmethod
+	def get_environment_setting() -> EnvLoader:
 		row_data = []
 		try:
-			with open(self._env_file, 'r') as json_data:
+			with open(CONFIG_PATH, 'r') as json_data:
 				read_data: dict = json.load(json_data)
 				for key, value in read_data.items():
 					row_data.append(value)
@@ -19,9 +20,4 @@ class EnvParse(Environment):
 			print(message)
 		finally:
 			json_data.close()
-
-
-if __name__ == "__main__":
-	e = EnvParse()
-	print(e.get_environment_setting())
 	pass
