@@ -1,3 +1,4 @@
+from typing import Tuple
 import mysql.connector
 from mysql.connector import errorcode
 
@@ -20,12 +21,30 @@ class Connection:
 				print("Database does not exist")
 			else:
 				print(error)
-		finally:
-			conn.close()
+				conn.close()
 
-	def query_handler(self, sql_query: str, *args, **kwargs):
+	def query_select_handler(self, sql_query: str) -> list:
 		connection = self.connect()
-		# connection.cursor()
-		connection.close()
+		cursor = connection.cursor()
+		try:
+			cursor.execute(sql_query)
+			return cursor.fetchall()
+		except mysql.connector.Error as error:
+			print(error)
+		finally:
+			cursor.close()
+			connection.close()
 
+	def query_insert_file_row_into_db(self, value_params: list):
+		connection = self.connect()
+		cursor = connection.cursor()
+		try:
+			query = f"INSERT INTO conatus.xml_data(track_id, point, elevation, temperature, heart_rate, cadence, time) VALUES {*value_params,};"
+			cursor.execute(query)
+			connection.commit()
+		except mysql.connector.Error as error:
+			print(error)
+		finally:
+			cursor.close()
+			connection.close()
 	pass

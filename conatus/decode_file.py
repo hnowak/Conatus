@@ -2,7 +2,7 @@ import os
 from typing import *
 from xml.etree import ElementTree
 from xml.etree.ElementTree import Element
-from extension_data import ExtensionData
+from conatus.extension_data import ExtensionData
 
 
 class Decode:
@@ -11,7 +11,7 @@ class Decode:
 			print(os.path.join('../import', file_name))
 			raise FileNotFoundError
 		else:
-			self.file_name = os.path.join('../import', file_name)
+			self.file_name = os.path.join('import', file_name)
 
 	@property
 	def file_name(self):
