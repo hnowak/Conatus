@@ -1,4 +1,3 @@
-from typing import Tuple
 import mysql.connector
 from mysql.connector import errorcode
 

@@ -13,7 +13,7 @@ class EnvParse:
 		try:
 			with open(CONFIG_PATH, 'r') as json_data:
 				read_data: dict = json.load(json_data)
-				for key, value in read_data.items():
+				for value in read_data.items():
 					row_data.append(value)
 				return EnvLoader(*row_data)
 		except Exception as message:

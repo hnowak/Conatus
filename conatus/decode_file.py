@@ -1,17 +1,18 @@
 import os
-from typing import *
+from typing import List
 from xml.etree import ElementTree
 from xml.etree.ElementTree import Element
 from conatus.extension_data import ExtensionData
+import definitions
 
 
 class Decode:
 	def __init__(self, file_name: str):
-		if not os.path.exists(os.path.join('import', file_name)):
-			print(os.path.join('../import', file_name))
+		if not os.path.exists(os.path.join(definitions.IMPORT_PATH, file_name)):
+			print(os.path.join(definitions.IMPORT_PATH, file_name))
 			raise FileNotFoundError
 		else:
-			self.file_name = os.path.join('import', file_name)
+			self.file_name = os.path.join(definitions.IMPORT_PATH, file_name)
 
 	@property
 	def file_name(self):
