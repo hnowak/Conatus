@@ -1,7 +1,7 @@
 import mysql.connector
 from mysql.connector import errorcode
 
-from services.env_parse import EnvParse
+from src.services import EnvParse
 
 
 class Connection:

@@ -1,6 +1,6 @@
 import json
-from services.env_loader import EnvLoader
-from definitions import CONFIG_PATH
+from src.services.env_loader import EnvLoader
+from src.definitions import CONFIG_PATH
 
 
 class EnvParse:
