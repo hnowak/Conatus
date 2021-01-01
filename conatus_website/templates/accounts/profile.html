@@ -12,9 +12,15 @@
 				{% include 'navbar.html' %}
 				<div class="container-fluid">
 					<div class="d-sm-flex align-items-center justify-content-between mb-4">
-									<h1 class="h3 mb-0 text-gray-800">Home</h1>
-									<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-											class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+									<h1 class="h3 mb-0 text-gray-800">{{ user.username }}'s profile</h1>
+<!--									<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i-->
+<!--											class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>-->
+						{% with profile=user.profile %}
+						{% if profile %}
+							<h2>{{ profile.persona|default:"" }}</h2>
+						
+						{% endif %}
+						{% endwith %}
 					</div>
 				</div>
 			</div>
