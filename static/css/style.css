@@ -1,0 +1,21 @@
+.custom-file-input:lang(en)~.custom-file-label::after {
+    content: "";
+    display: none;
+}
+
+.bg {
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.elem-window-center {
+    top: 50%;
+    left: 25%;
+    width: 50vw;
+}}
